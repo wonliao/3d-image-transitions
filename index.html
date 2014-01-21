@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>3D Image Transitions</title>
+		<!--[if lte IE 8]>
+ 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	
+		<!-- Use jQuery for best compatibility with other CSS3 enabled browsers -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="js/flux.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+				if(!flux.browser.supportsTransitions)
+					alert("Flux Slider requires a browser that supports CSS3 transitions");
+					
+				window.f = new flux.slider('#slider', {
+					pagination: false,
+					controls: false,
+					transitions: ['explode', 'tiles3d', 'bars3d', 'cube', 'turn'],
+					autoplay: false
+				});
+				
+				$('#slider').click(function(event){
+					event.preventDefault();
+					window.f.next('turn', $(event.target).data('params'));
+				});
+			});
+		</script>
+	</head>
+	<body bgcolor="#FFCCCC">
+    	<div align="center">
+            <section class="container">
+                <h1> 我愛Marjorie</h1>
+                <div id="slider">
+                    <img src="imgs/1.jpg" alt="" />
+                    <img src="imgs/2.jpg" alt="" />
+                    <img src="imgs/3.jpg" alt="" />
+                    <img src="imgs/4.jpg" alt="" />
+                    <img src="imgs/5.jpg" alt="" />
+                    <img src="imgs/6.jpg" alt="" />
+                    <img src="imgs/7.jpg" alt="" />
+                    <img src="imgs/8.jpg" alt="" />
+                    <img src="imgs/9.jpg" alt="" />
+                </div>
+            </section>
+            <p>點擊圖片換頁</p>
+    	</div>
+	</body>
+</html>
